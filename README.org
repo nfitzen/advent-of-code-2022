@@ -1,0 +1,9 @@
+#+TITLE: Advent of Code 2022
+
+It's that time of year again.
+
+** Copyright
+
+Copyright \copy 2022 [[github:nfitzen][nfitzen]].
+
+All code is licensed under the [[file:LICENSE][Expat/MIT]] license.
