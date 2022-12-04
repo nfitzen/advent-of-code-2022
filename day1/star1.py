@@ -2,17 +2,31 @@
 # SPDX-License-Identifier: MIT
 # SPDX-FileCopyrightText: (C) 2022 nfitzen <https://github.com/nfitzen>
 
+from typing import Generator, Iterable
+
+
 def main():
     with open("input.txt") as f:
-        data: str = f.read()
-    elves: list[str] = data.split("\n\n")
-    # yes ik I could use max() but whatever
-    m = 0
-    for elf in elves:
-        current = sum(int(line) for line in elf.splitlines())
-        if current > m:
-            m = current
-    print(m)
+        elves = line_group(f)
+        # yes ik I could use max() but whatever
+        m = 0
+        for elf in elves:
+            current = sum(int(line) for line in elf)
+            if current > m:
+                m = current
+        print(m)
+
+
+def line_group(lines: Iterable[str]) -> Generator[list[str], None, None]:
+    """Groups an iterable by empty lines."""
+    it = iter(lines)
+    l = []
+    for val in it:
+        if val == "\n":
+            yield l
+            l = []
+            continue
+        l.append(val)
 
 
 if __name__ == "__main__":
