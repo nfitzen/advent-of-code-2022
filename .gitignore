@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: 2022 nfitzen <https://github.com/nfitzen>
 
 input.txt
+example.txt
 
 __pycache__/
 *.pyc
